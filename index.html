@@ -1590,4 +1590,514 @@ function decorations(){
         <img
             class="decor d-bunny"
             src="assets/bunny.png"
-            onerror="this.style.displ
+            onerror="this.style.display='none'"
+        >
+
+        <img
+            class="decor d-plush"
+            src="assets/green-plush.png"
+            onerror="this.style.display='none'"
+        >
+
+        <img
+            class="decor d-ice"
+            src="assets/icecream.png"
+            onerror="this.style.display='none'"
+        >
+
+        <img
+            class="decor d-candy"
+            src="assets/candy.png"
+            onerror="this.style.display='none'"
+        >
+
+    `;
+
+}
+
+
+/* =====================================================
+   PAGE SHELL
+===================================================== */
+
+function page(content){
+
+    document.getElementById("app").innerHTML = `
+
+        <main class="page">
+
+            ${decorations()}
+
+            <div class="content">
+
+                ${content}
+
+            </div>
+
+        </main>
+
+    `;
+
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+function home(){
+
+    page(`
+
+        <section class="home">
+
+            <div class="title home-title">
+                a little something for you
+            </div>
+
+            <div class="subtitle">
+                made especially for you ♡
+            </div>
+
+
+            <div
+                class="letter-wrap"
+                id="letterWrap"
+            >
+
+                <div class="photo">
+
+                    <img
+                        src="photo.png"
+                        onerror="this.style.display='none'"
+                    >
+
+                </div>
+
+
+                <div class="tape"></div>
+
+
+                <div class="envelope">
+
+                    <div class="flap"></div>
+
+
+                    <div class="letter">
+
+                        <h2>
+                            hi, my love &lt;3
+                        </h2>
+
+                        <p>
+                            สวัสดีนะเบบิ &lt;3
+                            เค้าทำเว็บนี้มาให้เธอผ่อนคลายเล่น ๆ
+                            ทั้งหมดนี้เป็นเพลงที่เค้าฟังเองแหละ
+                            เค้าอยากจะส่งต่อเพลงเพราะ ๆ ให้เธอ
+                            ฟุ ฟุ
+                            เค้าหวังว่าเธอจะชอบนะคะ
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="open-button"
+                id="openLetterBtn"
+                type="button"
+            >
+                เปิดจดหมาย ♡
+            </button>
+
+        </section>
+
+    `);
+
+
+    const wrap =
+        document.getElementById("letterWrap");
+
+    const button =
+        document.getElementById("openLetterBtn");
+
+
+    let opened = false;
+
+
+    function openLetter(){
+
+        if(opened) return;
+
+        opened = true;
+
+        wrap.classList.add("opened");
+
+        button.disabled = true;
+
+        button.textContent =
+            "อ่านจดหมายก่อนนะ ♡";
+
+
+        /*
+           รอให้จดหมายลอยออกมาก่อน
+        */
+
+        setTimeout(() => {
+
+            button.disabled = false;
+
+            button.textContent =
+                "อ่านเสร็จแล้ว →";
+
+
+            button.onclick = function(){
+
+                feelings();
+
+            };
+
+        }, 1400);
+
+    }
+
+
+    wrap.addEventListener(
+        "click",
+        openLetter
+    );
+
+    button.addEventListener(
+        "click",
+        openLetter
+    );
+
+}
+
+
+/* =====================================================
+   FEELINGS
+===================================================== */
+
+function feelings(){
+
+    page(`
+
+        <section class="feeling-page">
+
+            <div class="title">
+                what are you feeling?
+            </div>
+
+            <div class="subtitle">
+                เลือกความรู้สึกของเธอตอนนี้ ♡
+            </div>
+
+
+            <div class="feelings">
+
+
+                <button
+                    class="feeling"
+                    type="button"
+                    onclick="player('lonely')"
+                >
+
+                    <span class="feeling-title">
+                        เหงา
+                    </span>
+
+                    <img
+                        src="goldfish.png"
+                        onerror="this.style.display='none'"
+                    >
+
+                </button>
+
+
+                <button
+                    class="feeling"
+                    type="button"
+                    onclick="player('miss')"
+                >
+
+                    <span class="feeling-title">
+                        คิดถึงเค้า
+                    </span>
+
+                    <img
+                        src="bow-pink.png"
+                        onerror="this.style.display='none'"
+                    >
+
+                </button>
+
+
+                <button
+                    class="feeling"
+                    type="button"
+                    onclick="player('love')"
+                >
+
+                    <span class="feeling-title">
+                        รักเค้า
+                    </span>
+
+                    <img
+                        src="heart-pearl.png"
+                        onerror="this.style.display='none'"
+                    >
+
+                </button>
+
+
+                <button
+                    class="feeling"
+                    type="button"
+                    onclick="player('sad')"
+                >
+
+                    <span class="feeling-title">
+                        เศร้า
+                    </span>
+
+                    <img
+                        src="bunny.png"
+                        onerror="this.style.display='none'"
+                    >
+
+                </button>
+
+
+                <button
+                    class="feeling"
+                    type="button"
+                    onclick="player('angry')"
+                >
+
+                    <span class="feeling-title">
+                        โกรธเค้า
+                    </span>
+
+                    <img
+                        src="green-plush.png"
+                        onerror="this.style.display='none'"
+                    >
+
+                </button>
+
+
+                <button
+                    class="feeling"
+                    type="button"
+                    onclick="player('sulk')"
+                >
+
+                    <span class="feeling-title">
+                        งอนเค้า
+                    </span>
+
+                    <img
+                        src="bunny-pair.png"
+                        onerror="this.style.display='none'"
+                    >
+
+                </button>
+
+
+            </div>
+
+
+            <button
+                class="back"
+                type="button"
+                onclick="home()"
+            >
+                ← กลับไปที่จดหมาย
+            </button>
+
+        </section>
+
+    `);
+
+}
+
+
+/* =====================================================
+   PLAYER PAGE
+===================================================== */
+
+function player(id){
+
+    currentSong = id;
+
+    const song = songs[id];
+
+
+    page(`
+
+        <section class="player-page">
+
+            <div class="title">
+                ${song.feeling}
+            </div>
+
+            <div class="subtitle">
+                ${song.hint}
+            </div>
+
+
+            <div class="player">
+
+                <div class="player-tape"></div>
+
+
+                <div class="video">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/${song.video}"
+                        title="${song.title}"
+                        allow="
+                            accelerometer;
+                            autoplay;
+                            clipboard-write;
+                            encrypted-media;
+                            gyroscope;
+                            picture-in-picture;
+                            web-share
+                        "
+                        allowfullscreen
+                    ></iframe>
+
+                </div>
+
+
+                <div class="song">
+
+                    <div class="song-name">
+                        ${song.title}
+                    </div>
+
+                    <div class="song-artist">
+                        ${song.artist}
+                    </div>
+
+                </div>
+
+
+                <div class="reason">
+
+                    ${song.reason}
+
+                </div>
+
+
+                <div style="
+                    display:flex;
+                    justify-content:center;
+                    gap:10px;
+                    flex-wrap:wrap;
+                ">
+
+                    <button
+                        class="next"
+                        type="button"
+                        onclick="finalPage()"
+                    >
+                        ฟังจบแล้ว ♡
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    `);
+
+}
+
+
+/* =====================================================
+   FINAL PAGE
+===================================================== */
+
+function finalPage(){
+
+    if(!currentSong) return;
+
+
+    const song =
+        songs[currentSong];
+
+
+    page(`
+
+        <section
+            class="player-page"
+            style="position:relative;"
+        >
+
+            <img
+                class="decor d-bow"
+                src="${song.decoration}"
+                onerror="this.style.display='none'"
+                style="
+                    width:100px;
+                    left:3%;
+                    top:5%;
+                "
+            >
+
+
+            <div class="final">
+
+                <h2>
+                    ${song.feeling} ♡
+                </h2>
+
+                <p>
+                    ${song.final}
+                </p>
+
+
+                <button
+                    class="back"
+                    type="button"
+                    onclick="feelings()"
+                >
+                    เลือกความรู้สึกอื่น
+                </button>
+
+
+                <button
+                    class="back"
+                    type="button"
+                    onclick="home()"
+                    style="margin-left:6px;"
+                >
+                    กลับไปหน้าแรก
+                </button>
+
+            </div>
+
+        </section>
+
+    `);
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+home();
+
+</script>
+
+</body>
+</html>
