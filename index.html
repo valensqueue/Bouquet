@@ -339,35 +339,31 @@ body{
 /* =====================================================
    ENVELOPE
 ===================================================== */
-
-.letter-wrap{
-
-    width:
-        min(420px,88vw);
-
-    margin-top:35px;
+      
+.envelope{
+    height:270px;
 
     position:relative;
 
-    /*
-       สำคัญ:
-       ต้อง visible
-       เพื่อให้กระดาษลอยออกนอกซองได้
-    */
+    background:#d7b47e;
+
+    border:
+        2px solid #645953;
+
+    box-shadow:
+        8px 10px 0 var(--shadow);
+
+    border-radius:2px;
 
     overflow:visible;
 
-    cursor:pointer;
-
-    touch-action:manipulation;
-
+    z-index:2;
 }
 
 
 /* little photo behind */
 
 .photo{
-
     position:absolute;
 
     width:110px;
@@ -377,31 +373,27 @@ body{
 
     padding:8px 8px 24px;
 
-    left:-25px;
-    top:-40px;
+    left:-35px;
+    top:20px;
 
     transform:rotate(-8deg);
 
     box-shadow:
         3px 5px 9px var(--shadow);
 
-    z-index:1;
-
+    z-index:0;
 }
 
 
 .photo img{
-
     width:100%;
     height:100%;
 
     object-fit:cover;
-
 }
 
 
 .photo::after{
-
     content:"";
 
     position:absolute;
@@ -416,10 +408,7 @@ body{
     left:35px;
 
     transform:rotate(4deg);
-
 }
-
-
 /* tape */
 
 .tape{
