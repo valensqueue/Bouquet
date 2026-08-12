@@ -1,1 +1,1593 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+      maximum-scale=1.0,user-scalable=no">
 
+<title>a little something for you</title>
+
+<!-- Cute Thai fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   COLORS
+===================================================== */
+
+:root{
+
+    --pink:#f3c6d5;
+    --pink2:#f9e1e9;
+
+    --cream:#fff8ed;
+
+    --brown:#594d4b;
+    --brown2:#746563;
+
+    --yellow:#f9e8aa;
+    --blue:#d8eaf1;
+    --green:#dceacb;
+    --purple:#e7dcef;
+
+    --shadow:rgba(70,55,55,.16);
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+
+    width:100%;
+    min-height:100%;
+
+    overflow-x:hidden;
+}
+
+body{
+
+    /*
+       ถ้ามีรูปพื้นหลังจาก reference
+       ให้ใส่เป็น:
+
+       assets/background.png
+
+       ถ้ายังไม่มี รูปจะ fallback
+       เป็นพื้นสีครีม
+    */
+
+    background:
+        #fff8ee
+        url("assets/background.png")
+        center/cover fixed no-repeat;
+
+    color:var(--brown);
+
+    /*
+       Mali = ตัวหลัก
+       Quicksand = อังกฤษ
+    */
+
+    font-family:"Mali","Quicksand",sans-serif;
+
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+
+    touch-action:manipulation;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+#app{
+    width:100%;
+    min-height:100vh;
+}
+
+
+/* =====================================================
+   PAGE TRANSITION
+===================================================== */
+
+.page{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:
+        25px
+        18px
+        35px;
+
+    position:relative;
+
+    animation:
+        pageIn .65s cubic-bezier(.22,.75,.25,1);
+
+}
+
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateX(45px)
+            rotate(1deg)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateX(0)
+            rotate(0)
+            scale(1);
+    }
+
+}
+
+
+/* little scrapbook page shadow */
+
+.page::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 50%,
+            rgba(80,60,60,.08)
+        );
+
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.content{
+
+    width:min(760px,100%);
+
+    min-height:80vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+.title{
+
+    text-align:center;
+
+    font-family:"Mali",sans-serif;
+
+    font-weight:700;
+
+    font-size:
+        clamp(28px,8vw,48px);
+
+    line-height:1.3;
+
+    color:#594d4b;
+
+}
+
+
+.subtitle{
+
+    margin-top:8px;
+
+    text-align:center;
+
+    font-family:"Mali",sans-serif;
+
+    font-size:12px;
+
+    color:#8b7d7a;
+
+    letter-spacing:1px;
+
+}
+
+
+/* =====================================================
+   DECORATIONS
+===================================================== */
+
+.decor{
+
+    position:absolute;
+
+    z-index:5;
+
+    pointer-events:none;
+
+    user-select:none;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            2px 4px 2px rgba(70,55,55,.12)
+        );
+
+    animation:
+        floaty 4s ease-in-out infinite;
+
+}
+
+
+@keyframes floaty{
+
+    0%,100%{
+        transform:translateY(0) rotate(-3deg);
+    }
+
+    50%{
+        transform:translateY(-6px) rotate(3deg);
+    }
+
+}
+
+
+.d-bow{
+    width:95px;
+    top:10px;
+    left:2%;
+}
+
+.d-fish{
+    width:105px;
+    left:-2%;
+    bottom:13%;
+}
+
+.d-bunny{
+    width:100px;
+    right:-1%;
+    top:14%;
+}
+
+.d-plush{
+    width:95px;
+    right:1%;
+    bottom:13%;
+}
+
+.d-ice{
+    width:80px;
+    left:8%;
+    bottom:4%;
+}
+
+.d-candy{
+    width:75px;
+    right:8%;
+    bottom:3%;
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+.home{
+
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:80vh;
+
+}
+
+
+.home-title{
+    margin-bottom:4px;
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.letter-wrap{
+
+    width:
+        min(420px,88vw);
+
+    margin-top:35px;
+
+    position:relative;
+
+    /*
+       สำคัญ:
+       ต้อง visible
+       เพื่อให้กระดาษลอยออกนอกซองได้
+    */
+
+    overflow:visible;
+
+    cursor:pointer;
+
+    touch-action:manipulation;
+
+}
+
+
+/* little photo behind */
+
+.photo{
+
+    position:absolute;
+
+    width:110px;
+    height:125px;
+
+    background:#fff;
+
+    padding:8px 8px 24px;
+
+    left:-25px;
+    top:-40px;
+
+    transform:rotate(-8deg);
+
+    box-shadow:
+        3px 5px 9px var(--shadow);
+
+    z-index:1;
+
+}
+
+
+.photo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.photo::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:38px;
+    height:12px;
+
+    background:
+        rgba(244,205,214,.85);
+
+    top:-5px;
+    left:35px;
+
+    transform:rotate(4deg);
+
+}
+
+
+/* tape */
+
+.tape{
+
+    position:absolute;
+
+    width:85px;
+    height:23px;
+
+    background:
+        rgba(245,205,214,.9);
+
+    z-index:10;
+
+    left:50%;
+    top:-15px;
+
+    transform:
+        translateX(-50%)
+        rotate(-3deg);
+
+    box-shadow:
+        1px 2px 3px rgba(0,0,0,.05);
+
+}
+
+
+/* envelope itself */
+
+.envelope{
+
+    height:270px;
+
+    position:relative;
+
+    background:#d7b47e;
+
+    border:
+        2px solid #645953;
+
+    box-shadow:
+        8px 10px 0 var(--shadow);
+
+    border-radius:2px;
+
+    overflow:visible;
+
+}
+
+
+/* folds */
+
+.envelope::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    background:
+
+        linear-gradient(
+            35deg,
+            transparent 48%,
+            #c69f6b 49%,
+            transparent 51%
+        ),
+
+        linear-gradient(
+            -35deg,
+            transparent 48%,
+            #e7c791 49%,
+            transparent 51%
+        );
+
+}
+
+
+/* flap */
+
+.flap{
+
+    position:absolute;
+
+    top:-1px;
+    left:-1px;
+
+    width:
+        calc(100% + 2px);
+
+    height:67%;
+
+    background:#e5c58e;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    border:
+        2px solid #645953;
+
+    border-top:none;
+
+    transform-origin:
+        50% 0%;
+
+    transition:
+        transform .9s
+        cubic-bezier(.2,.8,.2,1);
+
+    z-index:20;
+
+}
+
+
+/* letter hidden initially */
+
+.letter{
+
+    position:absolute;
+
+    width:88%;
+
+    left:6%;
+
+    top:15px;
+
+    min-height:245px;
+
+    padding:
+        28px
+        22px
+        28px;
+
+    background:#fffdf4;
+
+    border:
+        1.5px solid #655c58;
+
+    box-shadow:
+        4px 7px 0 rgba(70,55,55,.12);
+
+    z-index:5;
+
+    /*
+       IMPORTANT:
+       ตอนยังไม่เปิดให้ซ่อน
+    */
+
+    transform:
+        translateY(80px)
+        scale(.96);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        transform 1s
+        cubic-bezier(.2,.8,.2,1),
+        opacity .4s ease;
+
+}
+
+
+/* opened */
+
+.letter-wrap.opened .flap{
+
+    transform:
+        rotateX(180deg);
+
+}
+
+
+.letter-wrap.opened .letter{
+
+    transform:
+        translateY(-175px)
+        scale(1);
+
+    opacity:1;
+
+    pointer-events:auto;
+
+    z-index:30;
+
+}
+
+
+/* letter content */
+
+.letter h2{
+
+    margin:0 0 12px;
+
+    font-family:"Mali",sans-serif;
+
+    font-size:25px;
+
+    font-weight:700;
+
+}
+
+
+.letter p{
+
+    margin:0;
+
+    font-size:13px;
+
+    line-height:2;
+
+}
+
+
+/* =====================================================
+   OPEN BUTTON
+===================================================== */
+
+.open-button{
+
+    margin-top:32px;
+
+    padding:
+        12px 25px;
+
+    border:
+        1.5px solid #5c5150;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--pink);
+
+    color:#594d4b;
+
+    font-family:"Mali",sans-serif;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:
+        4px 5px 0 rgba(70,55,55,.12);
+
+    transition:
+        transform .2s,
+        background .2s;
+
+    position:relative;
+
+    z-index:100;
+
+    touch-action:manipulation;
+
+}
+
+
+.open-button:active{
+
+    transform:
+        translateY(3px);
+
+    box-shadow:
+        1px 2px 0 rgba(70,55,55,.12);
+
+}
+
+
+.open-button:disabled{
+
+    opacity:.6;
+
+    cursor:default;
+
+}
+
+
+/* =====================================================
+   FEELING PAGE
+===================================================== */
+
+.feeling-page{
+
+    width:100%;
+
+    min-height:80vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.feeling-page .title{
+
+    margin-bottom:2px;
+
+}
+
+
+/* circles area */
+
+.feelings{
+
+    width:
+        min(560px,100%);
+
+    margin-top:38px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        28px 25px;
+
+    justify-items:center;
+
+}
+
+
+/* =====================================================
+   BLOB BUTTON
+===================================================== */
+
+.feeling{
+
+    width:135px;
+    height:135px;
+
+    position:relative;
+
+    border:none;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:15px;
+
+    color:#594d4b;
+
+    font-family:"Mali",sans-serif;
+
+    box-shadow:
+        4px 6px 0 rgba(70,55,55,.10);
+
+    transition:
+        transform .25s
+        cubic-bezier(.2,.8,.2,1),
+        box-shadow .25s;
+
+    /*
+       ไม่เป็นวงกลม perfect
+       เหมือนก้อนถูกบี้
+    */
+
+    border-radius:
+        48% 52% 43% 57%
+        / 55% 43% 57% 45%;
+
+}
+
+
+.feeling:nth-child(1){
+
+    background:#dcebcf;
+
+    transform:rotate(-4deg);
+
+}
+
+.feeling:nth-child(2){
+
+    background:#f5d0dc;
+
+    transform:rotate(3deg);
+
+}
+
+.feeling:nth-child(3){
+
+    background:#f7e7ac;
+
+    transform:rotate(-2deg);
+
+}
+
+.feeling:nth-child(4){
+
+    background:#d9eaf1;
+
+    transform:rotate(4deg);
+
+}
+
+.feeling:nth-child(5){
+
+    background:#eadcf0;
+
+    transform:rotate(-5deg);
+
+}
+
+.feeling:nth-child(6){
+
+    background:#f5d9bd;
+
+    transform:rotate(3deg);
+
+}
+
+
+.feeling:hover{
+
+    transform:
+        scale(1.08)
+        rotate(0deg);
+
+    box-shadow:
+        6px 9px 0 rgba(70,55,55,.12);
+
+}
+
+
+.feeling:active{
+
+    transform:
+        scale(.94)
+        rotate(2deg);
+
+}
+
+
+/* feeling text */
+
+.feeling-title{
+
+    font-size:18px;
+
+    line-height:1.5;
+
+    font-weight:600;
+
+    position:relative;
+
+    z-index:3;
+
+}
+
+
+/* decoration inside */
+
+.feeling img{
+
+    position:absolute;
+
+    width:58px;
+
+    height:58px;
+
+    object-fit:contain;
+
+    right:-8px;
+    bottom:-8px;
+
+    pointer-events:none;
+
+    filter:
+        drop-shadow(
+            2px 3px 2px rgba(70,55,55,.12)
+        );
+
+}
+
+
+/* tiny subtitle */
+
+.feeling-small{
+
+    position:absolute;
+
+    opacity:0;
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back{
+
+    margin-top:35px;
+
+    padding:
+        9px 20px;
+
+    border:
+        1.5px solid #5d5250;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    color:var(--brown);
+
+    font-family:"Mali",sans-serif;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   PLAYER
+===================================================== */
+
+.player-page{
+
+    width:100%;
+
+    min-height:80vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.player{
+
+    width:
+        min(600px,100%);
+
+    margin-top:30px;
+
+    position:relative;
+
+}
+
+
+/* decorative tape */
+
+.player-tape{
+
+    width:90px;
+    height:24px;
+
+    position:absolute;
+
+    left:50%;
+    top:-13px;
+
+    transform:
+        translateX(-50%)
+        rotate(-4deg);
+
+    background:
+        rgba(244,202,214,.9);
+
+    z-index:10;
+
+}
+
+
+/* video */
+
+.video{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    overflow:hidden;
+
+    border:
+        1.5px solid #635956;
+
+    background:
+        #e9dfd7;
+
+    box-shadow:
+        6px 8px 0 var(--shadow);
+
+}
+
+
+.video iframe{
+
+    width:100%;
+    height:100%;
+
+    border:0;
+
+}
+
+
+/* song info */
+
+.song{
+
+    margin-top:25px;
+
+    padding:0 15px;
+
+    text-align:center;
+
+}
+
+
+.song-name{
+
+    font-family:"Mali",sans-serif;
+
+    font-weight:700;
+
+    font-size:
+        clamp(22px,6vw,32px);
+
+}
+
+
+.song-artist{
+
+    margin-top:4px;
+
+    font-family:"Mali",sans-serif;
+
+    font-size:12px;
+
+    color:#897b78;
+
+}
+
+
+/* reason */
+
+.reason{
+
+    margin-top:18px;
+
+    padding:18px 20px;
+
+    background:#fff0b9;
+
+    border:
+        1.5px solid #655a55;
+
+    box-shadow:
+        4px 5px 0 rgba(70,55,55,.08);
+
+    font-size:13px;
+
+    line-height:2;
+
+    transform:rotate(.7deg);
+
+}
+
+
+/* next */
+
+.next{
+
+    margin-top:30px;
+
+    padding:
+        11px 25px;
+
+    border:
+        1.5px solid #5c5150;
+
+    border-radius:999px;
+
+    background:var(--green);
+
+    color:var(--brown);
+
+    font-family:"Mali",sans-serif;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final{
+
+    width:
+        min(600px,100%);
+
+    padding:
+        35px 25px;
+
+    text-align:center;
+
+    background:
+        rgba(255,253,244,.9);
+
+    border:
+        1.5px solid #625854;
+
+    box-shadow:
+        6px 8px 0 var(--shadow);
+
+}
+
+
+.final h2{
+
+    margin:0 0 17px;
+
+    font-family:"Mali",sans-serif;
+
+    font-size:27px;
+
+}
+
+
+.final p{
+
+    margin:0;
+
+    font-size:14px;
+
+    line-height:2.1;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .page{
+
+        padding:
+            18px
+            13px
+            30px;
+
+    }
+
+
+    .content{
+
+        min-height:
+            82vh;
+
+    }
+
+
+    .title{
+
+        font-size:30px;
+
+    }
+
+
+    .subtitle{
+
+        font-size:11px;
+
+    }
+
+
+    /* envelope */
+
+    .letter-wrap{
+
+        width:
+            min(360px,87vw);
+
+        margin-top:35px;
+
+    }
+
+
+    .envelope{
+
+        height:240px;
+
+    }
+
+
+    .letter{
+
+        min-height:225px;
+
+        padding:
+            23px 18px;
+
+    }
+
+
+    .letter h2{
+
+        font-size:21px;
+
+    }
+
+
+    .letter p{
+
+        font-size:11.5px;
+
+        line-height:1.85;
+
+    }
+
+
+    .letter-wrap.opened .letter{
+
+        transform:
+            translateY(-155px);
+
+    }
+
+
+    /* decorations */
+
+    .d-bow{
+        width:65px;
+        left:-2%;
+        top:2%;
+    }
+
+    .d-fish{
+        width:70px;
+        left:-5%;
+        bottom:10%;
+    }
+
+    .d-bunny{
+        width:70px;
+        right:-3%;
+        top:12%;
+    }
+
+    .d-plush{
+        width:65px;
+        right:-2%;
+        bottom:12%;
+    }
+
+    .d-ice{
+        width:55px;
+    }
+
+    .d-candy{
+        width:52px;
+    }
+
+
+    /* feelings */
+
+    .feeling-page{
+
+        min-height:
+            85vh;
+
+    }
+
+
+    .feelings{
+
+        width:100%;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:
+            22px 18px;
+
+        margin-top:30px;
+
+    }
+
+
+    .feeling{
+
+        width:
+            min(125px,38vw);
+
+        height:
+            min(125px,38vw);
+
+    }
+
+
+    .feeling-title{
+
+        font-size:
+            clamp(15px,4.3vw,18px);
+
+    }
+
+
+    .feeling img{
+
+        width:48px;
+        height:48px;
+
+    }
+
+
+    .player{
+
+        width:
+            100%;
+
+    }
+
+
+    .reason{
+
+        font-size:12px;
+
+        line-height:1.9;
+
+    }
+
+}
+
+
+/* very small phones */
+
+@media(max-width:360px){
+
+    .feelings{
+
+        gap:
+            17px 12px;
+
+    }
+
+    .feeling{
+
+        width:112px;
+        height:112px;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div id="app"></div>
+
+
+<script>
+
+/* =====================================================
+   SONG DATA
+   เปลี่ยนเพลงตรงนี้อย่างเดียว
+===================================================== */
+
+const songs = {
+
+    lonely:{
+
+        feeling:"เหงา",
+
+        hint:"ถ้าอยู่คนเดียวตอนนี้ ลองฟังเพลงนี้ดู",
+
+        title:"ยันจุดสิ้นสุดเวลา",
+
+        artist:"Arert",
+
+        video:"1LjjxugVn5k",
+
+        reason:
+        "เค้าก้ม่ายรุ้เหมือนกันทำไมเค้าเลือกเพลงนี้ แต่เค้าชอบนะ",
+
+        final:
+        "เหงาจริง ๆ ใช่อ๊ะเปล่าเนี่ย หึ่ย แต่ก้นะ ไหน ๆ ก้เปิดมาแระ ถ้าเปิดตอนเหงาจิง ๆ ก้ ทักตามเต้าสิ ! ! หรือว่า หรือว่า ถ้าเค้ายังม่ายมาก็รอหน่อยน้าที่รัก เค้าอาจจะหลับคร่อกฟี้อยู่ เดี๋ยวเค้าจะรีบลุกมาคุยกับเบบินะ",
+
+        decoration:"assets/goldfish.png"
+
+    },
+
+
+    miss:{
+
+        feeling:"คิดถึงเค้า",
+
+        hint:"มาคิดถึงกันอยู่หรือเปล่า",
+
+        title:"เจ้าของหัวใจ",
+
+        artist:"URMINE",
+
+        video:"sOeUsPxlnsg",
+
+        reason:
+        "เพราะเธอคือเจ้าของหัวใจของเค้า",
+
+        final:
+        "แหนะ แหนะ มาคิดถึงกันตะไม เค้าก็คิดถึงเธอเหมือนกันนะคะ > <",
+
+        decoration:"assets/bow-pink.png"
+
+    },
+
+
+    love:{
+
+        feeling:"รักเค้า",
+
+        hint:"วันนี้รักเค้ามากเป็นพิเศษหรือเปล่า",
+
+        title:"เพลงรักเพลงแรก",
+
+        artist:"LANDOKMAI",
+
+        video:"N9bashij_7c",
+
+        reason:
+        "ถึงจะไม่ใช่เพลงรักเพลงแรกที่เค้าส่งให้เธอแต่เค้าว่ามันเหมาะกับช่วงเวลานี้ที่สุดแล้ว",
+
+        final:
+        "ขอบคุณที่เธออยู่รักกับเค้ามานานขนาดนี้นะที่รัก เค้ารักเธอเหมือนกันนะคะ >w<",
+
+        decoration:"assets/heart-pearl.png"
+
+    },
+
+
+    sad:{
+
+        feeling:"เศร้า",
+
+        hint:"ถ้าวันนี้ไม่ค่อยโอเค ลองอยู่กับเพลงนี้สักพัก",
+
+        title:"ธรรมดาที่แสนพิเศษ",
+
+        artist:"ANATOMY RABBIT",
+
+        video:"h2VIUdst5y4",
+
+        reason:
+        "เพราะว่า เธอน่ะ เป็นแบบนี้ก็ดีที่สุดแล้ว แบบที่เธอเป็นเธอ แบบที่เธอสดใส ม่ายเศร้า",
+
+        final:
+        "เบบิฟังจบแล้วหรอ เลิกเศร้าได้แล้วนะคะ เค้าคิดถึงเธอคนเดิม ไม่ว่าตอนนี้จะเกิดเรื่องอะไรขึ้น เค้าว่ามันจะผ่านไปได้แน่ ๆ นะคะ",
+
+        decoration:"assets/bunny.png"
+
+    },
+
+
+    angry:{
+
+        feeling:"โกรธเค้า",
+
+        hint:"ยังโกรธเค้าอยู่ไหม...",
+
+        title:"ยอม",
+
+        artist:"LANDOKMAI",
+
+        video:"eul1dPDpY4c",
+
+        reason:
+        "ที่เค้าเลือกเพราะว่าเค้าอยากให้เธอหายโกรธเค้านะบิบิ",
+
+        final:
+        "หลังฟังจบแล้วเค้าหวังว่าบิบิจะหายโกรธเค้านะ",
+
+        decoration:"assets/green-plush.png"
+
+    },
+
+
+    sulk:{
+
+        feeling:"งอนเค้า",
+
+        hint:"ถ้ากำลังงอนเค้าอยู่...",
+
+        title:"น้อยใจ",
+
+        artist:"txrbo",
+
+        video:"INwcB96ODL8",
+
+        reason:
+        "เพราะว่า เค้าม่ายอยากให้เธองอนแระ ตอนเธองอนเปนเหมือนเพลงนี้เลย ! !",
+
+        final:
+        "เดี๋ยวนี้ไม่ค่อยรับโทรศัพท์ รู้ไหมคนดีฉันนอนไม่หลับ แฮร่ หายงอนเค้าได้แระ ดีกันนะคะ",
+
+        decoration:"assets/bunny-pair.png"
+
+    }
+
+};
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let currentSong = null;
+
+
+/* =====================================================
+   DECORATIONS
+===================================================== */
+
+function decorations(){
+
+    return `
+
+        <img
+            class="decor d-bow"
+            src="assets/bow-green.png"
+            onerror="this.style.display='none'"
+        >
+
+        <img
+            class="decor d-fish"
+            src="assets/goldfish.png"
+            onerror="this.style.display='none'"
+        >
+
+        <img
+            class="decor d-bunny"
+            src="assets/bunny.png"
+            onerror="this.style.displ
